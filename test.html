@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bridge-test</title>
+</head>
+<body>
+    <div id="test">测试内容</div>
+        <script src="./asyncTest.js"></script>
+        <script>
+            window.onload = function(){
+                foo();
+                // 可以看到即使 foo 经过 async await的处理，但是如果onload这个function没有async await的话，这里的同步方法仍然会早于foo里面的方法执行。
+                console.log('after foo');
+            }
+        </script>
+</body>
+</html>
